@@ -1,0 +1,20 @@
+toolsets = gnu vs2015 vs2013;
+
+gnu.makefile = ../GNUmakefile/GNUmakefile;
+vs2015.solutionfile = ../VC14/CppBenchmarks.sln;
+vs2013.solutionfile = ../VC12/CppBenchmarks.sln;
+
+program CppBenchmarks
+{
+    archs = x86 x86_64;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+    }
+
+    sources
+    {
+        ../../Source/main.cpp
+    }
+}

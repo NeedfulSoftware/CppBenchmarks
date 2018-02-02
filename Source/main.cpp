@@ -27,22 +27,6 @@
 #include <set>
 #include <unordered_set>
 
-void vector_insert2(size_t count)
-{
-    std::vector<int> theVector;
-
-    auto startTime = std::chrono::high_resolution_clock::now();
-
-    for (int i = 0; i < count; ++i)
-    {
-        theVector.insert(theVector.begin() + (theVector.size() >> 1), i);
-    }
-
-    auto endTime = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::vector::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
-}
-
 void set_insert(size_t count)
 {
     std::set<int> theSet;
@@ -78,12 +62,6 @@ void unordered_set_insert(size_t count)
 int main(int argc, char* argv[])
 {
     ContainerTests::runAllContainerTests();
-
-    std::cout << std::endl;
-
-    vector_insert2(100);
-    vector_insert2(10000);
-    vector_insert2(100000);
 
     std::cout << std::endl;
 

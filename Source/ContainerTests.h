@@ -29,6 +29,7 @@ public:
     static void runAllContainerTests();
 
     static void std_vector_push_back(size_t count);
+    static void std_vector_insert1(size_t count);
 };
 
 #endif

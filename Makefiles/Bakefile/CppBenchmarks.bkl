@@ -13,8 +13,16 @@ program CppBenchmarks
         cxx-compiler-options = "-std=c++11";
     }
 
+    headers
+    {
+        ../../Source/ContainerTests.h
+        ../../Source/Utilities.h
+    }
+
     sources
     {
         ../../Source/main.cpp
+        ../../Source/ContainerTests.cpp
+        ../../Source/Utilities.cpp
     }
 }

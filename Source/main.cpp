@@ -24,24 +24,7 @@
 #include "Utilities.h"
 #include <chrono>
 #include <iostream>
-#include <set>
 #include <unordered_set>
-
-void set_insert(size_t count)
-{
-    std::set<int> theSet;
-
-    auto startTime = std::chrono::high_resolution_clock::now();
-
-    for (int i = 0; i < count; ++i)
-    {
-        theSet.insert(i);
-    }
-
-    auto endTime = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::set::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
-}
 
 void unordered_set_insert(size_t count)
 {
@@ -62,12 +45,6 @@ void unordered_set_insert(size_t count)
 int main(int argc, char* argv[])
 {
     ContainerTests::runAllContainerTests();
-
-    std::cout << std::endl;
-
-    set_insert(1000);
-    set_insert(1000000);
-    set_insert(100000000);
 
     std::cout << std::endl;
 

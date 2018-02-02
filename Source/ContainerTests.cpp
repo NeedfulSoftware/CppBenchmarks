@@ -24,25 +24,37 @@
 #include "Utilities.h"
 #include <chrono>
 #include <vector>
+#include <set>
 #include <iostream>
 
 void ContainerTests::runAllContainerTests()
 {
-    std_vector_push_back(1000);
-    std_vector_push_back(1000000);
-    std_vector_push_back(1000000000);
+    runAllVectorTests();
+    runAllSetTests();
+}
+
+void ContainerTests::runAllVectorTests()
+{
+    for (size_t i = 1; i <= 1000000000; i *= 10)
+    {
+        std_vector_push_back(i);
+    }
 
     std::cout << std::endl;
-
-    std_vector_insert1(100);
-    std_vector_insert1(10000);
-    std_vector_insert1(100000);
-
+    
+    for (size_t i = 1; i <= 1000000; i *= 10)
+    {
+        std_vector_insert1(i);
+    }
+    
     std::cout << std::endl;
-
-    std_vector_insert2(100);
-    std_vector_insert2(10000);
-    std_vector_insert2(100000);
+    
+    for (size_t i = 1; i <= 1000000; i *= 10)
+    {
+        std_vector_insert2(i);
+    }
+    
+    std::cout << std::endl;
 }
 
 void ContainerTests::std_vector_push_back(size_t count)
@@ -91,4 +103,28 @@ void ContainerTests::std_vector_insert2(size_t count)
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
     std::cout << "std::vector::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
+void ContainerTests::runAllSetTests()
+{
+    for (size_t i = 1; i <= 100000000; i *= 10)
+    {
+        std_set_insert(i);
+    }
+}
+
+void ContainerTests::std_set_insert(size_t count)
+{
+    std::set<int> theSet;
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    for (int i = 0; i < count; ++i)
+    {
+        theSet.insert(i);
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "std::set::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }

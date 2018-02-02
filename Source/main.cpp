@@ -20,26 +20,12 @@
     IN THE SOFTWARE.
 */
 
+#include "Utilities.h"
 #include <chrono>
-#include <sstream>
 #include <iostream>
 #include <vector>
 #include <set>
 #include <unordered_set>
-
-std::string formatNumber(size_t n)
-{
-    std::stringstream str;
-    str << n;
-    std::string s = str.str();
-    int i = (s.size() - 3);
-    while (i > 0)
-    {
-        s.insert(i, ",");
-        i -= 3;
-    }
-    return s;
-}
 
 void vector_push_back(size_t count)
 {
@@ -54,7 +40,7 @@ void vector_push_back(size_t count)
 
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::vector::push_back " << formatNumber(count) <<  " items: " << diff.count() << "s" << std::endl;
+    std::cout << "std::vector::push_back " << Utilities::formatNumber(count) <<  " items: " << diff.count() << "s" << std::endl;
 }
 
 void vector_insert1(size_t count)
@@ -70,7 +56,7 @@ void vector_insert1(size_t count)
 
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::vector::insert " << formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+    std::cout << "std::vector::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }
 
 void vector_insert2(size_t count)
@@ -86,7 +72,7 @@ void vector_insert2(size_t count)
 
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::vector::insert " << formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+    std::cout << "std::vector::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }
 
 void set_insert(size_t count)
@@ -102,7 +88,7 @@ void set_insert(size_t count)
 
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::set::insert " << formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+    std::cout << "std::set::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }
 
 void unordered_set_insert(size_t count)
@@ -118,7 +104,7 @@ void unordered_set_insert(size_t count)
 
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::unordered_set::insert " << formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+    std::cout << "std::unordered_set::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }
 
 int main(int argc, char* argv[])

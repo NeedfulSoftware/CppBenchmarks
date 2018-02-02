@@ -21,3 +21,18 @@
 */
 
 #include "Utilities.h"
+#include <sstream>
+
+std::string Utilities::formatNumber(size_t n)
+{
+    std::stringstream str;
+    str << n;
+    std::string s = str.str();
+    int i = (s.size() - 3);
+    while (i > 0)
+    {
+        s.insert(i, ",");
+        i -= 3;
+    }
+    return s;
+}

@@ -23,4 +23,12 @@
 #ifndef _CPPBENCHMARKS_UTILITIES_H_
 #define _CPPBENCHMARKS_UTILITIES_H_
 
+#include <string>
+
+class Utilities
+{
+public:
+    static std::string formatNumber(size_t n);
+};
+
 #endif

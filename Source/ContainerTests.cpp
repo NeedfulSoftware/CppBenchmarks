@@ -21,3 +21,30 @@
 */
 
 #include "ContainerTests.h"
+#include "Utilities.h"
+#include <chrono>
+#include <vector>
+#include <iostream>
+
+void ContainerTests::runAllContainerTests()
+{
+    std_vector_push_back(1000);
+    std_vector_push_back(1000000);
+    std_vector_push_back(1000000000);
+}
+
+void ContainerTests::std_vector_push_back(size_t count)
+{
+    std::vector<int> theVector;
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    for (int i = 0; i < count; ++i)
+    {
+        theVector.push_back(i);
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "std::vector::push_back " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}

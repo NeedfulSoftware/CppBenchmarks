@@ -20,28 +20,12 @@
     IN THE SOFTWARE.
 */
 
+#include "ContainerTests.h"
 #include "Utilities.h"
 #include <chrono>
 #include <iostream>
-#include <vector>
 #include <set>
 #include <unordered_set>
-
-void vector_push_back(size_t count)
-{
-    std::vector<int> theVector;
-
-    auto startTime = std::chrono::high_resolution_clock::now();
-
-    for (int i = 0; i < count; ++i)
-    {
-        theVector.push_back(i);
-    }
-
-    auto endTime = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = endTime - startTime;
-    std::cout << "std::vector::push_back " << Utilities::formatNumber(count) <<  " items: " << diff.count() << "s" << std::endl;
-}
 
 void vector_insert1(size_t count)
 {
@@ -109,9 +93,7 @@ void unordered_set_insert(size_t count)
 
 int main(int argc, char* argv[])
 {
-    vector_push_back(1000);
-    vector_push_back(1000000);
-    vector_push_back(1000000000);
+    ContainerTests::runAllContainerTests();
 
     std::cout << std::endl;
 

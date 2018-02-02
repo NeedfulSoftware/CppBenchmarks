@@ -23,4 +23,12 @@
 #ifndef _CPPBENCHMARKS_CONTAINERTESTS_H_
 #define _CPPBENCHMARKS_CONTAINERTESTS_H_
 
+class ContainerTests
+{
+public:
+    static void runAllContainerTests();
+
+    static void std_vector_push_back(size_t count);
+};
+
 #endif

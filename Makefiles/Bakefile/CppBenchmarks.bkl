@@ -15,6 +15,7 @@ program CppBenchmarks
 
     headers
     {
+        ../../Source/HeapAllocationTests.h
         ../../Source/ContainerTests.h
         ../../Source/Utilities.h
     }
@@ -22,6 +23,7 @@ program CppBenchmarks
     sources
     {
         ../../Source/main.cpp
+        ../../Source/HeapAllocationTests.cpp
         ../../Source/ContainerTests.cpp
         ../../Source/Utilities.cpp
     }

@@ -25,12 +25,14 @@
 #include <chrono>
 #include <vector>
 #include <set>
+#include <unordered_set>
 #include <iostream>
 
 void ContainerTests::runAllContainerTests()
 {
     runAllVectorTests();
     runAllSetTests();
+    runAllOrderedSetTests();
 }
 
 void ContainerTests::runAllVectorTests()
@@ -127,4 +129,30 @@ void ContainerTests::std_set_insert(size_t count)
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
     std::cout << "std::set::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
+void ContainerTests::runAllOrderedSetTests()
+{
+    std::cout << std::endl;
+
+    for (size_t i = 1; i <= 100000000; i *= 10)
+    {
+        std_unordered_set_insert(i);
+    }
+}
+
+void ContainerTests::std_unordered_set_insert(size_t count)
+{
+    std::unordered_set<int> theUnorderedSet;
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    for (int i = 0; i < count; ++i)
+    {
+        theUnorderedSet.insert(i);
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "std::unordered_set::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }

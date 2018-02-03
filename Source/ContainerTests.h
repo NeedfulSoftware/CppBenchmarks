@@ -35,6 +35,9 @@ public:
 
     static void runAllSetTests();
     static void std_set_insert(size_t count);
+
+    static void runAllOrderedSetTests();
+    static void std_unordered_set_insert(size_t count);
 };
 
 #endif

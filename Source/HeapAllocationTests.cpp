@@ -21,3 +21,130 @@
 */
 
 #include "HeapAllocationTests.h"
+#include "Utilities.h"
+#include <chrono>
+#include <vector>
+#include <iostream>
+
+void HeapAllocationTests::runAllHeapAllocationTests()
+{
+    for (size_t i = 1; i <= 100000000; i *= 10)
+    {
+        new_int(i);
+    }
+
+    std::cout << std::endl;
+
+    for (size_t i = 1; i <= 10000000; i *= 10)
+    {
+        new_char256(i);
+    }
+
+    std::cout << std::endl;
+
+    for (size_t i = 1; i <= 10000000; i *= 10)
+    {
+        new_char1024(i);
+    }
+
+    std::cout << std::endl;
+
+    for (size_t i = 1; i <= 100; i *= 10)
+    {
+        new_char10MB(i);
+    }
+
+    std::cout << std::endl;
+}
+
+void HeapAllocationTests::new_int(size_t count)
+{
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    std::vector<int*> pointers;
+    pointers.resize(count);
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        pointers[i] = new int;
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        delete pointers[i];
+    }
+
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "new " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
+void HeapAllocationTests::new_char256(size_t count)
+{
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    std::vector<char*> pointers;
+    pointers.resize(count);
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        pointers[i] = new char[256];
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        delete[] pointers[i];
+    }
+
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "new " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
+void HeapAllocationTests::new_char1024(size_t count)
+{
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    std::vector<char*> pointers;
+    pointers.resize(count);
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        pointers[i] = new char[1024];
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        delete[] pointers[i];
+    }
+
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "new " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
+void HeapAllocationTests::new_char10MB(size_t count)
+{
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    std::vector<char*> pointers;
+    pointers.resize(count);
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        pointers[i] = new char[10*1024*1024];
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+
+    for (size_t i = 0; i < count; ++i)
+    {
+        delete[] pointers[i];
+    }
+
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "new " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}

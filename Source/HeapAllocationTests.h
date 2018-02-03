@@ -23,4 +23,15 @@
 #ifndef _CPPBENCHMARKS_HEAPALLOCATIONTESTS_H_
 #define _CPPBENCHMARKS_HEAPALLOCATIONTESTS_H_
 
+class HeapAllocationTests
+{
+public:
+    static void runAllHeapAllocationTests();
+
+    static void new_int(size_t count);
+    static void new_char256(size_t count);
+    static void new_char1024(size_t count);
+    static void new_char10MB(size_t count);
+};
+
 #endif

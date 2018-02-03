@@ -20,10 +20,12 @@
     IN THE SOFTWARE.
 */
 
+#include "HeapAllocationTests.h"
 #include "ContainerTests.h"
 
 int main(int argc, char* argv[])
 {
+    HeapAllocationTests::runAllHeapAllocationTests();
     ContainerTests::runAllContainerTests();
 
     return 0;

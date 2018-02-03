@@ -145,11 +145,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\main.cpp" />
+    <ClCompile Include="..\..\Source\MemoryTests.cpp" />
     <ClCompile Include="..\..\Source\HeapAllocationTests.cpp" />
     <ClCompile Include="..\..\Source\ContainerTests.cpp" />
     <ClCompile Include="..\..\Source\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\MemoryTests.h" />
     <ClInclude Include="..\..\Source\HeapAllocationTests.h" />
     <ClInclude Include="..\..\Source\ContainerTests.h" />
     <ClInclude Include="..\..\Source\Utilities.h" />

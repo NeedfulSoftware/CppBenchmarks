@@ -20,15 +20,19 @@
     IN THE SOFTWARE.
 */
 
-#include "MemoryTests.h"
-#include "HeapAllocationTests.h"
-#include "ContainerTests.h"
+#ifndef _CPPBENCHMARKS_MEMORYTESTS_H_
+#define _CPPBENCHMARKS_MEMORYTESTS_H_
 
-int main(int argc, char* argv[])
+class MemoryTests
 {
-    MemoryTests::runAllMemoryTests();
-    HeapAllocationTests::runAllHeapAllocationTests();
-    ContainerTests::runAllContainerTests();
+public:
+    static void runAllMemoryTests();
 
-    return 0;
-}
+    static void memset(size_t count);
+
+    static void memmove1(size_t count);
+    static void memmove2(size_t count);
+    static void memmove3(size_t count);
+};
+
+#endif

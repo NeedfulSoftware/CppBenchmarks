@@ -43,12 +43,26 @@ void ContainerTests::runAllVectorTests()
     }
 
     std::cout << std::endl;
+
+    for (size_t i = 1; i <= 1000000000; i *= 10)
+    {
+        std_vector_reserve_push_back(i);
+    }
+
+    std::cout << std::endl;
     
     for (size_t i = 1; i <= 1000000; i *= 10)
     {
         std_vector_insert1(i);
     }
     
+    std::cout << std::endl;
+
+    for (size_t i = 1; i <= 1000000; i *= 10)
+    {
+        std_vector_reserve_insert1(i);
+    }
+
     std::cout << std::endl;
     
     for (size_t i = 1; i <= 1000000; i *= 10)
@@ -75,6 +89,23 @@ void ContainerTests::std_vector_push_back(size_t count)
     std::cout << "std::vector::push_back " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }
 
+void ContainerTests::std_vector_reserve_push_back(size_t count)
+{
+    std::vector<int> theVector;
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    theVector.reserve(count);
+    for (int i = 0; i < count; ++i)
+    {
+        theVector.push_back(i);
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "std::vector::reserve followed by std::vector::push_back " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
 void ContainerTests::std_vector_insert1(size_t count)
 {
     std::vector<int> theVector;
@@ -89,6 +120,23 @@ void ContainerTests::std_vector_insert1(size_t count)
     auto endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = endTime - startTime;
     std::cout << "std::vector::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
+}
+
+void ContainerTests::std_vector_reserve_insert1(size_t count)
+{
+    std::vector<int> theVector;
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    theVector.reserve(count);
+    for (int i = 0; i < count; ++i)
+    {
+        theVector.insert(theVector.begin(), i);
+    }
+
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = endTime - startTime;
+    std::cout << "std::vector::reserve followed by std::vector::insert " << Utilities::formatNumber(count) << " items: " << diff.count() << "s" << std::endl;
 }
 
 void ContainerTests::std_vector_insert2(size_t count)

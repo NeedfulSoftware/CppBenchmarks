@@ -30,9 +30,11 @@ public:
 
     static void runAllVectorTests();
     static void std_vector_push_back(size_t count);
+    static void std_vector_reserve_push_back(size_t count);
     static void std_vector_insert1(size_t count);
+    static void std_vector_reserve_insert1(size_t count);
     static void std_vector_insert2(size_t count);
-
+    
     static void runAllSetTests();
     static void std_set_insert(size_t count);
 

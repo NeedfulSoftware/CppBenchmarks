@@ -16,6 +16,7 @@ program CppBenchmarks
     headers
     {
         ../../Source/MemoryTests.h
+        ../../Source/FunctionCallTests.h
         ../../Source/HeapAllocationTests.h
         ../../Source/SmartPointerTests.h
         ../../Source/ContainerTests.h
@@ -26,6 +27,7 @@ program CppBenchmarks
     {
         ../../Source/main.cpp
         ../../Source/MemoryTests.cpp
+        ../../Source/FunctionCallTests.cpp
         ../../Source/HeapAllocationTests.cpp
         ../../Source/SmartPointerTests.cpp
         ../../Source/ContainerTests.cpp

@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\MemoryTests.cpp" />
+    <ClCompile Include="..\..\Source\FunctionCallTests.cpp" />
     <ClCompile Include="..\..\Source\HeapAllocationTests.cpp" />
     <ClCompile Include="..\..\Source\SmartPointerTests.cpp" />
     <ClCompile Include="..\..\Source\ContainerTests.cpp" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\MemoryTests.h" />
+    <ClInclude Include="..\..\Source\FunctionCallTests.h" />
     <ClInclude Include="..\..\Source\HeapAllocationTests.h" />
     <ClInclude Include="..\..\Source\SmartPointerTests.h" />
     <ClInclude Include="..\..\Source\ContainerTests.h" />

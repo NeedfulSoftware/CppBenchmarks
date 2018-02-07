@@ -50,8 +50,8 @@ $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_er
 endif
 all: $(_builddir)CppBenchmarks
 
-$(_builddir)CppBenchmarks: $(_builddir)CppBenchmarks_main.o $(_builddir)CppBenchmarks_MemoryTests.o $(_builddir)CppBenchmarks_HeapAllocationTests.o $(_builddir)CppBenchmarks_ContainerTests.o $(_builddir)CppBenchmarks_Utilities.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CppBenchmarks_main.o $(_builddir)CppBenchmarks_MemoryTests.o $(_builddir)CppBenchmarks_HeapAllocationTests.o $(_builddir)CppBenchmarks_ContainerTests.o $(_builddir)CppBenchmarks_Utilities.o -pthread
+$(_builddir)CppBenchmarks: $(_builddir)CppBenchmarks_main.o $(_builddir)CppBenchmarks_MemoryTests.o $(_builddir)CppBenchmarks_HeapAllocationTests.o $(_builddir)CppBenchmarks_SmartPointerTests.o $(_builddir)CppBenchmarks_ContainerTests.o $(_builddir)CppBenchmarks_Utilities.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CppBenchmarks_main.o $(_builddir)CppBenchmarks_MemoryTests.o $(_builddir)CppBenchmarks_HeapAllocationTests.o $(_builddir)CppBenchmarks_SmartPointerTests.o $(_builddir)CppBenchmarks_ContainerTests.o $(_builddir)CppBenchmarks_Utilities.o -pthread
 
 $(_builddir)CppBenchmarks_main.o: ../../Source/main.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -std=c++11 ../../Source/main.cpp
@@ -61,6 +61,9 @@ $(_builddir)CppBenchmarks_MemoryTests.o: ../../Source/MemoryTests.cpp
 
 $(_builddir)CppBenchmarks_HeapAllocationTests.o: ../../Source/HeapAllocationTests.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -std=c++11 ../../Source/HeapAllocationTests.cpp
+
+$(_builddir)CppBenchmarks_SmartPointerTests.o: ../../Source/SmartPointerTests.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -std=c++11 ../../Source/SmartPointerTests.cpp
 
 $(_builddir)CppBenchmarks_ContainerTests.o: ../../Source/ContainerTests.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -std=c++11 ../../Source/ContainerTests.cpp

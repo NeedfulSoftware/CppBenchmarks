@@ -17,6 +17,7 @@ program CppBenchmarks
     {
         ../../Source/MemoryTests.h
         ../../Source/HeapAllocationTests.h
+        ../../Source/SmartPointerTests.h
         ../../Source/ContainerTests.h
         ../../Source/Utilities.h
     }
@@ -26,6 +27,7 @@ program CppBenchmarks
         ../../Source/main.cpp
         ../../Source/MemoryTests.cpp
         ../../Source/HeapAllocationTests.cpp
+        ../../Source/SmartPointerTests.cpp
         ../../Source/ContainerTests.cpp
         ../../Source/Utilities.cpp
     }
